@@ -1,12 +1,12 @@
 profession_type,year,count,count_per_100000,percent_female,percent_age_under_30,percent_age_30_to_59,percent_age_over_60,province_territory,population
 Family medicine,2019,692,131.1,41.9,6.1,71,23,Newfoundland and Labrador,527643
-Family medicine,2020,684,129.80000000000001,44,6.4,71.400000000000006,22.1,Newfoundland and Labrador,526884
+Family medicine,2020,684,129.8,44,6.4,71.400000000000006,22.1,Newfoundland and Labrador,526884
 Family medicine,2021,695,131.9,44.5,5.9,71.599999999999994,22.5,Newfoundland and Labrador,527056
 Family medicine,2022,702,132.1,47.6,6.8,67.3,25.8,Newfoundland and Labrador,531583
 Family medicine,2023,666,123.7,47.9,5,71.7,23.3,Newfoundland and Labrador,538605
-Nurse practitioners,2019,183,34.700000000000003,86.6,2.2000000000000002,93,4.8,Newfoundland and Labrador,527643
-Nurse practitioners,2020,191,36.299999999999997,87.1,0.5,94.3,5.3,Newfoundland and Labrador,526884
-Nurse practitioners,2021,207,39.299999999999997,86.1,0.9,93.5,5.6,Newfoundland and Labrador,527056
+Nurse practitioners,2019,183,34.7,86.6,2.2000000000000002,93,4.8,Newfoundland and Labrador,527643
+Nurse practitioners,2020,191,36.3,87.1,0.5,94.3,5.3,Newfoundland and Labrador,526884
+Nurse practitioners,2021,207,39.3,86.1,0.9,93.5,5.6,Newfoundland and Labrador,527056
 Nurse practitioners,2022,231,43.5,85.3,2.2000000000000002,91.8,6.1,Newfoundland and Labrador,531583
 Nurse practitioners,2023,260,48.3,86.9,1.5,91.2,7.3,Newfoundland and Labrador,538605
 Family medicine,2019,176,113,38.6,5.2,61.7,33.1,Prince Edward Island,155792
@@ -16,13 +16,13 @@ Family medicine,2022,195,116.6,42.1,3.8,71.7,24.5,Prince Edward Island,167188
 Family medicine,2023,205,118,42.4,3.6,69.099999999999994,27.3,Prince Edward Island,173787
 Nurse practitioners,2019,43,27.6,93,7,93,0,Prince Edward Island,155792
 Nurse practitioners,2020,49,30.8,94.7,3.5,96.5,0,Prince Edward Island,159193
-Nurse practitioners,2021,53,32.700000000000003,95.2,2.4,96.5,1.2,Prince Edward Island,162133
+Nurse practitioners,2021,53,32.7,95.2,2.4,96.5,1.2,Prince Edward Island,162133
 Nurse practitioners,2022,60,35.9,95,1.7,98.3,—,Prince Edward Island,167188
 Nurse practitioners,2023,71,40.9,94.4,2.8,95.8,1.4,Prince Edward Island,173787
-Family medicine,2019,1295,132.69999999999999,46.2,6.8,63.5,29.7,Nova Scotia,975799
+Family medicine,2019,1295,132.7,46.2,6.8,63.5,29.7,Nova Scotia,975799
 Family medicine,2020,1365,138,46.4,7.4,64.599999999999994,28,Nova Scotia,989168
 Family medicine,2021,1374,137.4,47.1,7.7,64.900000000000006,27.5,Nova Scotia,999908
-Family medicine,2022,1346,131.30000000000001,48.6,7.9,64.5,27.6,Nova Scotia,1025445
+Family medicine,2022,1346,131.3,48.6,7.9,64.5,27.6,Nova Scotia,1025445
 Family medicine,2023,1279,120.8,50.4,7.8,66.2,26,Nova Scotia,1058694
 Nurse practitioners,2019,204,20.9,95.3,1.4,92,6.6,Nova Scotia,975799
 Nurse practitioners,2020,220,22.2,92.6,1.3,90.5,8.1999999999999993,Nova Scotia,989168
@@ -30,18 +30,18 @@ Nurse practitioners,2021,240,24,91.5,2.2999999999999998,90,7.7,Nova Scotia,99990
 Nurse practitioners,2022,274,26.7,90.5,1.5,88,10.6,Nova Scotia,1025445
 Nurse practitioners,2023,330,31.2,91.8,1.2,87.9,10.9,Nova Scotia,1058694
 Family medicine,2019,1058,136.1,48.1,6.9,64.3,28.8,New Brunswick,777387
-Family medicine,2020,1072,136.80000000000001,49.5,6.6,64.400000000000006,28.9,New Brunswick,783432
+Family medicine,2020,1072,136.8,49.5,6.6,64.400000000000006,28.9,New Brunswick,783432
 Family medicine,2021,1103,139.5,50.5,6.8,63.5,29.7,New Brunswick,790802
-Family medicine,2022,1124,138.80000000000001,51,7.8,63.3,28.9,New Brunswick,809568
+Family medicine,2022,1124,138.8,51,7.8,63.3,28.9,New Brunswick,809568
 Family medicine,2023,1181,141.5,51.3,6.4,64.2,29.5,New Brunswick,834691
-Nurse practitioners,2019,139,17.899999999999999,93.7,2.1,90.2,7.7,New Brunswick,777387
-Nurse practitioners,2020,148,18.899999999999999,94.2,0.6,90.3,9.1,New Brunswick,783432
-Nurse practitioners,2021,159,20.100000000000001,92.9,0.6,90,9.4,New Brunswick,790802
+Nurse practitioners,2019,139,17.9,93.7,2.1,90.2,7.7,New Brunswick,777387
+Nurse practitioners,2020,148,18.9,94.2,0.6,90.3,9.1,New Brunswick,783432
+Nurse practitioners,2021,159,20.1,92.9,0.6,90,9.4,New Brunswick,790802
 Nurse practitioners,2022,171,21.1,93,1.8,89.5,8.8000000000000007,New Brunswick,809568
 Nurse practitioners,2023,193,23.1,93.8,3.1,87.6,9.3000000000000007,New Brunswick,834691
 Family medicine,2019,10786,127.1,56.6,7.2,64.5,28.3,Quebec,8483186
-Family medicine,2020,11098,129.80000000000001,57.5,3.3,67.3,29.3,Quebec,8551095
-Family medicine,2021,11334,132.19999999999999,58.2,0.8,68.7,30.5,Quebec,8572020
+Family medicine,2020,11098,129.8,57.5,3.3,67.3,29.3,Quebec,8551095
+Family medicine,2021,11334,132.2,58.2,0.8,68.7,30.5,Quebec,8572020
 Family medicine,2022,11449,132,59.1,0.6,67.8,31.6,Quebec,8672185
 Family medicine,2023,11549,130.1,59.6,0.4,66.8,32.700000000000003,Quebec,8874683
 Nurse practitioners,2019,545,6.4,90.8,4.2,94.8,1.1000000000000001,Quebec,8483186
@@ -65,7 +65,7 @@ Family medicine,2021,1505,108.1,40.5,7,68.8,24.2,Manitoba,1391924
 Family medicine,2022,1570,111.1,41.7,7.7,69.7,22.6,Manitoba,1413409
 Family medicine,2023,1562,107.4,42.7,7.8,69.5,22.7,Manitoba,1454902
 Nurse practitioners,2019,217,15.8,89.9,1.7,95,3.3,Manitoba,1370033
-Nurse practitioners,2020,233,16.899999999999999,89.7,3.4,92.3,4.2,Manitoba,1380132
+Nurse practitioners,2020,233,16.9,89.7,3.4,92.3,4.2,Manitoba,1380132
 Nurse practitioners,2021,275,19.8,—,2.2000000000000002,93.5,4.4000000000000004,Manitoba,1391924
 Nurse practitioners,2022,306,21.6,87.5,21.2,77.5,1.3,Manitoba,1413409
 Nurse practitioners,2023,316,21.7,86.9,11.7,86.7,1.6,Manitoba,1454902
@@ -89,9 +89,9 @@ Nurse practitioners,2020,602,13.7,90.3,1.2,88.7,10,Alberta,4407495
 Nurse practitioners,2021,633,14.3,90.2,0.8,88.7,10.5,Alberta,4431531
 Nurse practitioners,2022,674,14.9,90.8,0.4,89,10.5,Alberta,4510891
 Nurse practitioners,2023,722,15.4,90.6,1.5,88.6,9.8000000000000007,Alberta,4695290
-Family medicine,2019,6687,130.80000000000001,44.3,6.6,67.400000000000006,26,British Columbia,5111022
+Family medicine,2019,6687,130.8,44.3,6.6,67.400000000000006,26,British Columbia,5111022
 Family medicine,2020,6884,133,45.1,6.6,68.599999999999994,24.8,British Columbia,5176101
-Family medicine,2021,7118,136.19999999999999,45.6,6.3,68.2,25.5,British Columbia,5226665
+Family medicine,2021,7118,136.2,45.6,6.3,68.2,25.5,British Columbia,5226665
 Family medicine,2022,7523,140.5,46.3,6.4,67,26.6,British Columbia,5356284
 Family medicine,2023,7615,138,47.2,6.7,67.099999999999994,26.2,British Columbia,5519013
 Nurse practitioners,2019,514,10.1,92.3,1.3,90.9,7.8,British Columbia,5111022
@@ -99,7 +99,7 @@ Nurse practitioners,2020,540,10.4,92.3,0.9,90.8,8.3000000000000007,British Colum
 Nurse practitioners,2021,648,12.4,91.5,1.3,90.5,8.1999999999999993,British Columbia,5226665
 Nurse practitioners,2022,761,14.2,90.9,1.8,90.9,7.2,British Columbia,5356284
 Nurse practitioners,2023,885,16,89.9,1.5,91.5,7,British Columbia,5519013
-Family medicine,2019,67,162.69999999999999,49.3,1.5,71.599999999999994,26.9,Yukon,41187
+Family medicine,2019,67,162.7,49.3,1.5,71.599999999999994,26.9,Yukon,41187
 Family medicine,2020,71,169.2,50.7,1.4,71.8,26.8,Yukon,41958
 Family medicine,2021,71,165.3,50.7,0,71.8,28.2,Yukon,42961
 Family medicine,2022,74,168.5,50,1.4,68.900000000000006,29.7,Yukon,43905
@@ -114,18 +114,18 @@ Family medicine,2020,40,89.9,65,5,75,20,Northwest Territories,44504
 Family medicine,2021,42,94.2,69,2.4,78.599999999999994,19,Northwest Territories,44579
 Family medicine,2022,45,100.7,68.900000000000006,0,77.8,22.2,Northwest Territories,44685
 Family medicine,2023,46,102.3,69.599999999999994,2.2000000000000002,71.7,26.1,Northwest Territories,44972
-Nurse practitioners,2019,47‡,56.4‡,87.2,0,68.099999999999994,31.9,Northwest Territories,44442
-Nurse practitioners,2020,79‡,94.1‡,86.1,0,68.400000000000006,31.6,Northwest Territories,44504
-Nurse practitioners,2021,94‡,111.0‡,87.2,0,74.5,25.5,Northwest Territories,44579
-Nurse practitioners,2022,110‡,129.2‡,87.3,0.9,77.3,21.8,Northwest Territories,44685
-Nurse practitioners,2023,119‡,138.9‡,83.2,0.8,80.7,18.5,Northwest Territories,44972
+Nurse practitioners,2019,47,56.4,87.2,0,68.099999999999994,31.9,Northwest Territories,44442
+Nurse practitioners,2020,79,94.1,86.1,0,68.400000000000006,31.6,Northwest Territories,44504
+Nurse practitioners,2021,94,111,87.2,0,74.5,25.5,Northwest Territories,44579
+Nurse practitioners,2022,110,129.2,87.3,0.9,77.3,21.8,Northwest Territories,44685
+Nurse practitioners,2023,119,138.9,83.2,0.8,80.7,18.5,Northwest Territories,44972
 Family medicine,2019,17,43.8,35.299999999999997,5.9,76.5,17.600000000000001,Nunavut,38839
 Family medicine,2020,21,53.2,38.1,14.3,76.2,9.5,Nunavut,39479
 Family medicine,2021,18,44.9,44.4,16.7,72.2,11.1,Nunavut,40086
 Family medicine,2022,25,61.8,48,8.3000000000000007,70.8,20.8,Nunavut,40485
 Family medicine,2023,25,61.5,48,0,75,25,Nunavut,40673
-Nurse practitioners,2019,47‡,56.4‡,87.2,0,68.099999999999994,31.9,Nunavut,38839
-Nurse practitioners,2020,79‡,94.1‡,86.1,0,68.400000000000006,31.6,Nunavut,39479
-Nurse practitioners,2021,94‡,111.0‡,87.2,0,74.5,25.5,Nunavut,40086
-Nurse practitioners,2022,110‡,129.2‡,87.3,0.9,77.3,21.8,Nunavut,40485
-Nurse practitioners,2023,119‡,138.9‡,83.2,0.8,80.7,18.5,Nunavut,40673
+Nurse practitioners,2019,47,56.4,87.2,0,68.099999999999994,31.9,Nunavut,38839
+Nurse practitioners,2020,79,94.1,86.1,0,68.400000000000006,31.6,Nunavut,39479
+Nurse practitioners,2021,94,111,87.2,0,74.5,25.5,Nunavut,40086
+Nurse practitioners,2022,110,129.2,87.3,0.9,77.3,21.8,Nunavut,40485
+Nurse practitioners,2023,119,138.9,83.2,0.8,80.7,18.5,Nunavut,40673

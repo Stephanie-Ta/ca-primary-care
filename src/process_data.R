@@ -34,7 +34,10 @@ read_save_process_province_territory_data <- function(sheet_number, name) {
   processed_province_territory_data <- processed_province_territory_data |>
     filter(profession_type == "Family medicine" |
              profession_type == "Nurse practitioners") |>
-    mutate(province_territory = name)
+    mutate(province_territory = name,
+           count = as.numeric(gsub("[^0-9.]", "", count)),
+           count_per_100000 = as.numeric(gsub("[^0-9.]", "", count_per_100000))
+           )
   
   return(processed_province_territory_data)
 }
@@ -61,15 +64,15 @@ main <- function() {
              "Nunavut")
   
   full_data <- tibble(
-    profession_type = character(),
-    year = integer(),
-    count = integer(),
+    profession_type = factor(),
+    year = numeric(),
+    count = numeric(),
     count_per_100000 = numeric(),
     percent_female = numeric(),
     percent_age_under_30 = numeric(),
     percent_age_30_to_59 = numeric(),
     percent_age_over_60 = numeric(),
-    province_territory = character()
+    province_territory = factor()
   )
   
   for (i in seq_along(names)) {
@@ -104,6 +107,37 @@ main <- function() {
   
   # save processed data
   write_csv(full_data, "data/processed/processed_data.csv")
+  
+  # make summary data
+  full_data <- full_data |>
+    mutate(
+      profession_type = as.factor(profession_type),
+      province_territory = as.factor(province_territory),
+      year = as.numeric(year),
+      count = as.numeric(count),
+      count_per_100000 = as.numeric(count_per_100000),
+      percent_female = as.numeric(percent_female),
+      percent_age_under_30 = as.numeric(percent_age_under_30),
+      percent_age_30_to_59 = as.numeric(percent_age_30_to_59),
+      percent_age_over_60 = as.numeric(percent_age_over_60),
+    )
+  
+  summary_data <- full_data |>
+    mutate(count_female_per_100000 = count_per_100000 * percent_female / 100,
+           count_age_under_30_per_100000 = count_per_100000 * percent_age_under_30 / 100,
+           count_age_30_to_59_per_100000 = count_per_100000 * percent_age_30_to_59 / 100,
+           count_age_over_60_per_100000 = count_per_100000 * percent_age_over_60 / 100) |>
+    group_by(year, province_territory) |>
+    summarize(
+      total_workers = sum(count, na.rm = TRUE),
+      total_count_per_100000 = sum(count_per_100000, na.rm = TRUE),
+      total_percent_female = ifelse(total_count_per_100000 == 0, 0, sum(count_female_per_100000, na.rm = TRUE) / total_count_per_100000 * 100),
+      total_percent_age_under_30 = ifelse(total_count_per_100000 == 0, 0, sum(count_age_under_30_per_100000, na.rm = TRUE) / total_count_per_100000 * 100),
+      total_percent_age_30_to_59 = ifelse(total_count_per_100000 == 0, 0, sum(count_age_30_to_59_per_100000, na.rm = TRUE) / total_count_per_100000 * 100),
+      total_percent_age_over_60 = ifelse(total_count_per_100000 == 0, 0, sum(count_age_over_60_per_100000, na.rm = TRUE) / total_count_per_100000 * 100)
+    )
+  
+  write_csv(summary_data, "data/processed/summary_processed_data.csv")
 }
 
 source("src/process_data.R")
