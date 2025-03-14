@@ -1,4 +1,4 @@
-year,province_territory,total_workers,total_count_per_100000,total_percent_female,total_percent_age_under_30,total_percent_age_30_to_59,total_percent_age_over_60
+year,province_territory,count,count_per_100000,percent_female,percent_age_under_30,percent_age_30_to_59,percent_age_over_60
 2019,Alberta,6170,141.7,47.94509527170078,6.200776287932251,73.48087508821455,20.31834862385321
 2019,British Columbia,7201,140.9,47.74073811213626,6.220085166784953,69.08452803406672,24.69538679914833
 2019,Manitoba,1708,124.6,47.2008025682183,8.24895666131621,71.161797752809,20.589245585874803

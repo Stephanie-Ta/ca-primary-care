@@ -129,12 +129,12 @@ main <- function() {
            count_age_over_60_per_100000 = count_per_100000 * percent_age_over_60 / 100) |>
     group_by(year, province_territory) |>
     summarize(
-      total_workers = sum(count, na.rm = TRUE),
-      total_count_per_100000 = sum(count_per_100000, na.rm = TRUE),
-      total_percent_female = ifelse(total_count_per_100000 == 0, 0, sum(count_female_per_100000, na.rm = TRUE) / total_count_per_100000 * 100),
-      total_percent_age_under_30 = ifelse(total_count_per_100000 == 0, 0, sum(count_age_under_30_per_100000, na.rm = TRUE) / total_count_per_100000 * 100),
-      total_percent_age_30_to_59 = ifelse(total_count_per_100000 == 0, 0, sum(count_age_30_to_59_per_100000, na.rm = TRUE) / total_count_per_100000 * 100),
-      total_percent_age_over_60 = ifelse(total_count_per_100000 == 0, 0, sum(count_age_over_60_per_100000, na.rm = TRUE) / total_count_per_100000 * 100)
+      count = sum(count, na.rm = TRUE),
+      count_per_100000 = sum(count_per_100000, na.rm = TRUE),
+      percent_female = ifelse(count_per_100000 == 0, 0, sum(count_female_per_100000, na.rm = TRUE) / count_per_100000 * 100),
+      percent_age_under_30 = ifelse(count_per_100000 == 0, 0, sum(count_age_under_30_per_100000, na.rm = TRUE) / count_per_100000 * 100),
+      percent_age_30_to_59 = ifelse(count_per_100000 == 0, 0, sum(count_age_30_to_59_per_100000, na.rm = TRUE) / count_per_100000 * 100),
+      percent_age_over_60 = ifelse(count_per_100000 == 0, 0, sum(count_age_over_60_per_100000, na.rm = TRUE) / count_per_100000 * 100)
     )
   
   write_csv(summary_data, "data/processed/summary_processed_data.csv")
