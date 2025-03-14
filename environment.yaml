@@ -1,0 +1,11 @@
+name: ca-primary-care
+channels:
+  - conda-forge
+dependencies:
+  - ipykernel
+  - r-base
+  - r-plotly
+  - r-tidyverse
+  - r-languageserver
+  - r-shiny
+  - r-openxlsx
