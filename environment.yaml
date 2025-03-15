@@ -9,3 +9,6 @@ dependencies:
   - r-languageserver
   - r-shiny
   - r-openxlsx
+  - r-bslib
+  - r-ggthemes
+  - r-rsconnect
