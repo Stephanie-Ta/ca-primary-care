@@ -285,7 +285,7 @@ new_data |>
 ## Average Proportion of Primary Care Providers Per Gender Group
 ```{r}
 new_data |>
-  # add filter for province / territory
+  # add filter for province / territory and year!
   filter(profession_type == selected_profession_type) |>
   mutate(year = as.factor(year)) |>
   group_by(year) |>
@@ -306,6 +306,7 @@ new_data |>
 ## Average Proportion of Primary Care Providers Per Age Group
 ```{r}
 new_data |>
+  # add filter for province / territory and year!
   filter(profession_type == selected_profession_type) |>
   mutate(year = as.factor(year)) |>
   group_by(year) |>
