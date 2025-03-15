@@ -4,7 +4,7 @@ library(bslib)
 # note that yukon does not have any age dist data for nurse practitioners
 
 # read in data
-data <- read_csv("../data/processed/processed_data.csv") |>
+data <- read_csv("data/processed/processed_data.csv") |>
   mutate(
     profession_type = as.factor(profession_type),
     province_territory = as.factor(province_territory),
@@ -17,9 +17,6 @@ data <- read_csv("../data/processed/processed_data.csv") |>
     percent_age_30_to_59 = as.numeric(percent_age_30_to_59),
     percent_age_over_60 = as.numeric(percent_age_over_60),
   )
-
-
-
 
 ui <- fluidPage(
   theme = bslib::bs_theme(bootswatch = 'flatly'),
