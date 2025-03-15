@@ -18,12 +18,33 @@ data <- read_csv("data/processed/processed_data.csv") |>
     percent_age_over_60 = as.numeric(percent_age_over_60),
   )
 
-ui <- fluidPage(
-  theme = bslib::bs_theme(bootswatch = 'flatly'),
+ui <- fillPage(
+  theme = bslib::bs_theme(bootswatch = "flatly"),
   
+  tags$style(HTML("
+  .custom-header {
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #2C3E50;
+  }
+  .custom-subtitle {
+    font-size: 18px;
+    font-style: italic;
+    color: #555;
+    padding-left: 20px;
+  }
+  .custom-padding-right {
+    padding-right: 30px;
+  }
+  .custom-padding-left {
+    margin-left: 20px;
+  }
+  ")),
+  titlePanel(div("Canadian Primary Care Tracker", class = "custom-header")), 
+  h4(div("Explore the trends and demographics of Canadian primary care workers from 2019-2023!", class = "custom-subtitle")),
   
-  titlePanel(("Canadian Primary Care Tracker")),
-  h4("Explore the trends and demographics of Canadian primary care workers from 2019-2023!"),
   
   sidebarLayout(
     sidebarPanel(
@@ -54,22 +75,42 @@ ui <- fluidPage(
                   step = 1,
                   sep =''),
       
-      width = 3
+      width = 3,
+      class = "custom-padding-left"
     ),
     
     mainPanel(
       fluidRow(
-        column(width = 12, plotOutput("lineplot", height = "400px"))
+        column(width = 12,
+               card(
+                 card_header("Number of Primary Care Providers Per 100,000 Population Over Time"),
+                 card_body(plotOutput("lineplot", height = "250px")),
+                 full_screen = TRUE, border = TRUE
+               )
+        )
       ),
       
-      br(),
+      #br(),
       
       fluidRow(
-        column(width = 6, plotOutput("genderplot", height = "300px")),
-        column(width = 6, plotOutput("ageplot", height = "300px"))
+        column(width = 6,
+               card(
+                 card_header("Average Proportion of Primary Care Providers Per Gender"),
+                 card_body(plotOutput("genderplot", height = "250px")),
+                 full_screen = TRUE, border = TRUE
+               )),
+        column(width = 6,
+               card(
+                 card_header("Average Proportion of Primary Care Providers Per Age Group"),
+                 card_body(plotOutput("ageplot", height = "250px")),
+                 full_screen = TRUE, border = TRUE
+               ))
       ),
       
-      width = 9
+      fluidRow(),
+      
+      width = 9,
+      class = "custom-padding-right"
     )
   ),
   
@@ -87,9 +128,8 @@ server <- function(input, output, session) {
       ggplot(aes(x=year, y=count_per_100000, color=province_territory)) +
       geom_line(size = 1) +
       labs(x = "Year",
-           y = "Number of Primary Care Providers per 100,000 Population",
-           color = "Province/Territory",
-           title = "Number of Primary Care Providers per 100,000 Population Over Time") +
+           y = "Number per 100,000 Population",
+           color = "Province/Territory") +
       theme_minimal() +
       ggthemes::scale_color_gdocs()  +
       theme(text = element_text(size = 12.5))
@@ -114,8 +154,7 @@ server <- function(input, output, session) {
       geom_bar(stat = "identity") +
       scale_fill_manual(values = c("percent_male" = "#0072B2", "percent_female" = "#E69F00"),
                         labels = c("percent_male" = "Male", "percent_female" = "Female")) + 
-      labs(x = "Year", y = "Percentage", fill = "Gender",
-           title = "Average Proportion of Primary Care Providers Per Gender Group") +
+      labs(x = "Year", y = "Percentage", fill = "Gender") +
       theme_minimal() +
       theme(text = element_text(size = 12.5))
   })
@@ -140,19 +179,10 @@ server <- function(input, output, session) {
       geom_bar(stat = "identity") +
       scale_fill_manual(values = c("percent_age_under_30" = "#72d660", "percent_age_30_to_59" = "#339ff2", "percent_age_over_60" = "#8b29e6"),
                         labels = c("percent_age_under_30" = "Percent Under 30 Years Old", "percent_age_30_to_59" = "Percent Between 30 and 59 Years Old", "percent_age_over_60" = "Percent Over 60 Years Old")) + 
-      labs(x = "Year", y = "Percentage", fill = "Age Group",
-           title = "Average Proportion of Primary Care Providers Per Age Group") +
+      labs(x = "Year", y = "Percentage", fill = "Age Group") +
       theme_minimal() +
       theme(text = element_text(size = 12.5))
   })
-
-  # output$output_area <- renderText({
-  #   if (input$input_widget == '') {
-  #     return('')
-  #   } else {
-  #     return(paste0('Your are ', input$input_widget, '!'))
-  #   }
-  # })
 }
 
 
