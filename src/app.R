@@ -20,7 +20,7 @@ data <- read_csv("data/processed/processed_data.csv") |>
 
 ui <- fillPage(
   theme = bslib::bs_theme(bootswatch = "flatly"),
-  
+  tags$title("Canadian Primary Care Tracker"),
   tags$style(HTML("
   .custom-header {
     padding-top: 20px;
