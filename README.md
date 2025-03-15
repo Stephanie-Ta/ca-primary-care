@@ -7,7 +7,9 @@ Visit the Shiny R dashboard [here](https://stephanie-ta.shinyapps.io/ca-primary-
 ## Motivation
 
 According to a report by the Canadian Institute for Health Information, approximately 17% of Canadians do not have a regular healthcare provider, a issue is worsening over time (2024).
+
 This dashboard offers valuable insights into the trends and demographics of Canadian primary care workers, including family doctors and nurse practitioners. It provides detailed information on the number of primary care providers over time per province or territory, the proportion of each gender among primary care providers over time, and the distribution of providers across age groups. Additionally, the dashboard includes filters for profession type (family doctor vs. nurse practitioner), province or territory, and year.
+
 This tool is particularly useful for healthcare administrators and planners, enabling them to monitor workforce trends, identify gaps in primary care coverage, assess the distribution of primary care providers across regions, and analyze workforce demographics. By leveraging this dashboard, healthcare administrators and planners can make informed decisions about resource allocation, recruitment, retention, and succession planning to address current and future primary care needs.
 
 ## App Description
