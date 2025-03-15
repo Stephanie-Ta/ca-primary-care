@@ -19,10 +19,13 @@ Please have `renv` installed (`install.packages("renv")`) if you wish to run the
    - Navigate to where you'd like the cloned repository to reside in your local machine via the terminal.
    - Run the command `git clone <url>` in the terminal.
 
-2. Open RStudio and navigate to the project directory in RStudio. Open the project by clicking "Open Project" and selecting the project directory.
+2. Open RStudio and navigate to the project directory in RStudio. Open the project by clicking the `Project` dropdown, selecting `Open Project...`, navigating to the project directory in the pop up, and selecting the `ca-primary-care` R Project file.
 
-3. Create a `renv` virtual environment by running `renv::restore()` in the R console of RStudio. This will install the packages listed in the `renv.lock` file in a `renv` virtual environment.
+> ![](img/open-project.png)
+> ![](img/select-project.png)
 
-4. Navigate to and open `src/app.py` in RStudio. Run the app locally by clicking the `▶ Run App` button.
+1. Create a `renv` virtual environment by running `renv::restore()` in the R console of RStudio. This will install the packages listed in the `renv.lock` file in a `renv` virtual environment.
+
+2. Navigate to and open `src/app.py` in RStudio. Run the app locally by clicking the `▶ Run App` button.
 
 > ![](img/run-app-button.png)
