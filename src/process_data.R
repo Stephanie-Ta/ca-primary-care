@@ -37,7 +37,9 @@ read_save_process_province_territory_data <- function(sheet_number, name) {
     mutate(province_territory = name,
            count = as.numeric(gsub("[^0-9.]", "", count)),
            count_per_100000 = as.numeric(gsub("[^0-9.]", "", count_per_100000))
-           )
+           ) |>
+    mutate(profession_type = case_when(profession_type == "Family medicine" ~ "Family medicine doctors",
+                                       TRUE ~ profession_type ))
   
   return(processed_province_territory_data)
 }
@@ -105,8 +107,6 @@ main <- function() {
                          population_data,
                          by = join_by(year, province_territory))
   
-  # save processed data
-  write_csv(full_data, "data/processed/processed_data.csv")
   
   # make summary data
   full_data <- full_data |>
@@ -134,10 +134,19 @@ main <- function() {
       percent_female = ifelse(count_per_100000 == 0, 0, sum(count_female_per_100000, na.rm = TRUE) / count_per_100000 * 100),
       percent_age_under_30 = ifelse(count_per_100000 == 0, 0, sum(count_age_under_30_per_100000, na.rm = TRUE) / count_per_100000 * 100),
       percent_age_30_to_59 = ifelse(count_per_100000 == 0, 0, sum(count_age_30_to_59_per_100000, na.rm = TRUE) / count_per_100000 * 100),
-      percent_age_over_60 = ifelse(count_per_100000 == 0, 0, sum(count_age_over_60_per_100000, na.rm = TRUE) / count_per_100000 * 100)
-    )
+      percent_age_over_60 = ifelse(count_per_100000 == 0, 0, sum(count_age_over_60_per_100000, na.rm = TRUE) / count_per_100000 * 100),
+      population = mean(population, na.rm = TRUE)
+    ) |>
+    mutate(profession_type = "All")
   
-  write_csv(summary_data, "data/processed/summary_processed_data.csv")
+  # add summary data to processed data
+  data_with_summary <- bind_rows(full_data, summary_data)
+  data_with_summary <- data_with_summary |>
+    mutate(percent_male = 100 - percent_female)
+  
+  # save processed data
+  write_csv(data_with_summary, "data/processed/processed_data.csv")
+  
 }
 
 source("src/process_data.R")
