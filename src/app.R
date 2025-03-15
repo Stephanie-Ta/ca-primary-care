@@ -42,7 +42,7 @@ ui <- fillPage(
     margin-left: 20px;
   }
   ")),
-  titlePanel(div("Canadian Primary Care Tracker", class = "custom-header")), 
+  h1(div("Canadian Primary Care Tracker", class = "custom-header")), 
   h4(div("Explore the trends and demographics of Canadian primary care workers from 2019-2023!", class = "custom-subtitle")),
   
   
