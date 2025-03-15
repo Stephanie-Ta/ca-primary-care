@@ -6,6 +6,7 @@
 library(tidyverse)
 library(readxl)
 library(openxlsx)
+library(ggthemes)
 ```
 
 ```{r}
@@ -231,15 +232,94 @@ processed_data <- read_csv("../data/processed/processed_data.csv") |>
     percent_age_over_60 = as.numeric(percent_age_over_60),
   )
 ```
-
 ```{r}
-processed_data |>
-  filter(profession_type == "Family medicine") |>
-  ggplot(aes(x=year, y=count_per_100000, color=province_territory)) +
-  geom_line()
+summary_data <- read_csv("../data/processed/summary_processed_data.csv") |>
+  mutate(
+    profession_type = as.factor(profession_type),
+    province_territory = as.factor(province_territory),
+    year = as.numeric(year),
+    count = as.numeric(count),
+    count_per_100000 = as.numeric(count_per_100000),
+    percent_female = as.numeric(percent_female),
+    percent_age_under_30 = as.numeric(percent_age_under_30),
+    percent_age_30_to_59 = as.numeric(percent_age_30_to_59),
+    percent_age_over_60 = as.numeric(percent_age_over_60),
+  )
+```
+```{r}
+# new_data <- bind_rows(processed_data, summary_data)
+new_data <- read_csv("../data/processed/processed_data.csv") |>
+  mutate(
+    profession_type = as.factor(profession_type),
+    province_territory = as.factor(province_territory),
+    year = as.numeric(year),
+    count = as.numeric(count),
+    count_per_100000 = as.numeric(count_per_100000),
+    percent_male = as.numeric(percent_male),
+    percent_female = as.numeric(percent_female),
+    percent_age_under_30 = as.numeric(percent_age_under_30),
+    percent_age_30_to_59 = as.numeric(percent_age_30_to_59),
+    percent_age_over_60 = as.numeric(percent_age_over_60),
+  )
 ```
 
+## Line plot of Count of Primary Care Providers per 100,000 Population Over Time Per Province/Territory
 ```{r}
-summary_data <- read_csv("../data/processed/summary_processed_data.csv")
-head(summary_data)
+selected_profession_type <- "Family medicine doctors"
+#selected_profession_type <- "All"
+#selected_profession_type <- "Nurse practitioners"
+
+new_data |>
+  # put filter for selected provinces here
+    filter(profession_type == selected_profession_type) |>
+    ggplot(aes(x=year, y=count_per_100000, color=province_territory)) +
+    geom_line(size = 1) +
+    labs(x = "Year",
+         y = "Number of Primary Care Providers per 100,000 Population",
+         color = "Province/Territory",
+         title = "Number of Primary Care Providers per 100,000 Population Over Time") +
+    theme_minimal() +
+    ggthemes::scale_color_gdocs()
+
+```
+## Average Proportion of Primary Care Providers Per Gender Group
+```{r}
+new_data |>
+  # add filter for province / territory
+  filter(profession_type == selected_profession_type) |>
+  mutate(year = as.factor(year)) |>
+  group_by(year) |>
+  summarise(percent_female = mean(percent_female, na.rm = TRUE),
+            percent_male = mean(percent_male, na.rm = TRUE)) |>
+  pivot_longer(cols = c(percent_female, percent_male), 
+               names_to = "gender", values_to = "percentage") |>
+  mutate(gender = factor(gender, levels = c("percent_male", "percent_female"))) |> 
+  ggplot(aes(x = year, y = percentage, fill = gender)) +
+  geom_bar(stat = "identity") +  # Single bar call with stacked fill
+  scale_fill_manual(values = c("percent_male" = "#0072B2", "percent_female" = "#E69F00"),
+                    labels = c("percent_male" = "Male", "percent_female" = "Female")) + 
+  labs(x = "Year", y = "Percentage", fill = "Gender",
+       title = "Average Proportion of Primary Care Providers Per Gender Group") +
+  theme_minimal()
+```
+
+## Average Proportion of Primary Care Providers Per Age Group
+```{r}
+new_data |>
+  filter(profession_type == selected_profession_type) |>
+  mutate(year = as.factor(year)) |>
+  group_by(year) |>
+  summarise(percent_age_under_30 = mean(percent_age_under_30, na.rm = TRUE),
+            percent_age_30_to_59 = mean(percent_age_30_to_59, na.rm = TRUE),
+            percent_age_over_60 = mean(percent_age_over_60, na.rm = TRUE)) |>
+  pivot_longer(cols = c(percent_age_under_30, percent_age_30_to_59, percent_age_over_60), 
+               names_to = "age_group", values_to = "percentage") |>
+  mutate(age_group = factor(age_group, levels = c("percent_age_over_60", "percent_age_30_to_59", "percent_age_under_30"))) |>
+  ggplot(aes(x = year, y = percentage, fill = age_group)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("percent_age_under_30" = "#72d660", "percent_age_30_to_59" = "#339ff2", "percent_age_over_60" = "#8b29e6"),
+                    labels = c("percent_age_under_30" = "Percent Under 30 Years Old", "percent_age_30_to_59" = "Percent Between 30 and 59 Years Old", "percent_age_over_60" = "Percent Over 60 Years Old")) + 
+  labs(x = "Year", y = "Percentage", fill = "Age Group",
+       title = "Average Proportion of Primary Care Providers Per Age Group") +
+  theme_minimal()
 ```
