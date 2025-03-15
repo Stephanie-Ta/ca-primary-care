@@ -81,8 +81,12 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   output$lineplot <- renderPlot({
     data |>
-      # put filter for selected provinces here and year!!
+      # filter profession type
       filter(profession_type == input$selected_profession_type) |>
+      # Filter year range
+      filter(between(year, input$selected_year[1], input$selected_year[2])) |>
+      # Conditionally filter provinces if any are selected
+      filter(if (length(input$selected_province_territory) > 0) province_territory %in% input$selected_province_territory else TRUE) |>
       ggplot(aes(x=year, y=count_per_100000, color=province_territory)) +
       geom_line(size = 1) +
       labs(x = "Year",
@@ -96,8 +100,12 @@ server <- function(input, output, session) {
   
   output$genderplot <- renderPlot({
     data |>
-      # add filter for province / territory and year!
+      # filter profession type
       filter(profession_type == input$selected_profession_type) |>
+      # Filter year range
+      filter(between(year, input$selected_year[1], input$selected_year[2])) |>
+      # Conditionally filter provinces if any are selected
+      filter(if (length(input$selected_province_territory) > 0) province_territory %in% input$selected_province_territory else TRUE) |>
       mutate(year = as.factor(year)) |>
       group_by(year) |>
       summarise(percent_female = mean(percent_female, na.rm = TRUE),
@@ -117,8 +125,12 @@ server <- function(input, output, session) {
 
   output$ageplot <- renderPlot({
     data |>
-      # add filter for province / territory and year!
+      # filter profession type
       filter(profession_type == input$selected_profession_type) |>
+      # Filter year range
+      filter(between(year, input$selected_year[1], input$selected_year[2])) |>
+      # Conditionally filter provinces if any are selected
+      filter(if (length(input$selected_province_territory) > 0) province_territory %in% input$selected_province_territory else TRUE) |>
       mutate(year = as.factor(year)) |>
       group_by(year) |>
       summarise(percent_age_under_30 = mean(percent_age_under_30, na.rm = TRUE),
